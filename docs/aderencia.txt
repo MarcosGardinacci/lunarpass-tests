@@ -1,0 +1,51 @@
+Botão Buscar missões
+
+-Possui a tag html button e o texto "Buscar missões",  o que já é o suficiente para construir um bom locator.
+
+Chekbox de bases lunares
+
+-Possui texto no Span na qual eu consigo identificar a base e com /.. do xpath posso chegar no label para clicar no botão.
+
+Caixa de Seleção para ordenar data de missões
+
+-Select simples no html com options e também possui id
+
+## Página de Resutados (/missions)
+
+Botão refinar
+
+-Possui a tag html button e o texto "Refinar", o que já é o suficiente para construir um botão locator.
+
+- O filtro de bases lunares já tem id
+
+-Ordenar por está usando select padrão html
+
+OBS: Seria melhor padronizar os elementos de caixa de seleção de opções conforme o exemplo do filtro de bases lunares da página /missions.
+
+Lista de missões
+
+o botão reservar possui no atributo href o código da missão (a[href="/booking/LP-0127A"]) o que torna o processo de automação,muito simples.
+
+Caixa de resultado quando nenhuma missão é encontrada.
+
+Verificar se é acessível para testes automatizados,e se possível adicionar algum identificador.
+
+## Página da missão (/booking/LP-0127A)
+
+-Os botões de escolha de assento, já tem ária-label com informações relevantes.Se der para melhorar ok.
+- Ao fazer hover em um assento, o popover que mostra informaçoes do assento escolhido , não está acessível. Melhorrar com urgencia.
+
+-Aside de esumo não tem identificador para nenhuma das informações
+
+- Na sessão de reserva confirmada, cada informação relevante da pasagem pode ter um identificador exclusivo. Isso vai facilitar as verificações.
+
+Item da missão
+
+-A lista de missões é representada por uma UL, seria ótimo se cada li tivesse uma propriedade com uma informação relacionada ao código da missão.
+
+-Título ok, usa um h3
+-Descrição ok, usa um p
+-Data de ida e volta, ruim porque é um span pobre e sem graça, poderia ter um ID
+-Estadia, ruim porque é um span pobre e sem graça, poderia ter um IDd
+-Disponiibilidade de assentos, é muito ruim, poderia ter um ID
+
