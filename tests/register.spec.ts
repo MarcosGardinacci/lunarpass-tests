@@ -10,7 +10,7 @@ import { Navbar } from '../pages/components/navbar'
 import { Toast } from '../pages/components/toast'
 
 
-import { Mission } from '../support/mission'
+import { Mission } from '../support/types'
 
 import { deleteMission, deleteReservation, deleteTicket, insertMission } from '../support/db'
 
@@ -47,10 +47,10 @@ test('deve cadastrar uma nova missão', async ({ page }) => {
   const mission: Mission = {
     id: 'LP-' + faker.string.alphanumeric({ length: { min: 5, max: 5 }, casing: 'upper' }),
     rocket: 'Starship',
-    lunarBase: 'aurora',
+    baseId: 'aurora',
     departureDate: '2028-01-20',
-    returnDate: '27 de jan. de 2028',
-    price: '1000'
+    returnDate: '2028-01-27',
+    price: 1000.00
   }
 
 
@@ -70,10 +70,10 @@ test('não deve cadastrar com código de missão incorreto', async ({ page }) =>
   const mission: Mission = {
     id: faker.string.alphanumeric({ length: { min: 5, max: 5 }, casing: 'upper' }),
     rocket: 'Starship',
-    lunarBase: 'aurora',
+    baseId: 'aurora',
     departureDate: '2028-01-20',
-    returnDate: '27 de jan. de 2028',
-    price: '1000'
+    returnDate: '2028-01-27',
+    price: 1000.00
   }
 
 
@@ -94,17 +94,17 @@ test('não deve cadastrar com código duplicado', async ({ page }) => {
   const mission: Mission = {
     id: 'LP-DUP01',
     rocket: 'Starship',
-    lunarBase: 'aurora',
+    baseId: 'aurora',
     departureDate: '2028-01-20',
-    returnDate: '27 de jan. de 2028',
-    price: '1000'
+    returnDate: '2028-01-27',
+    price: 1000.00
   }
 
   
   await deleteReservation(mission.id)
   await deleteTicket(mission.id)
   await deleteMission(mission.id)
-  await insertMission(mission.id)
+  await insertMission(mission)
 
   //Act - ação do teste
   await dashPage.addButton.click()
