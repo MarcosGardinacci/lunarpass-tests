@@ -12,7 +12,7 @@ import { Toast } from '../pages/components/toast'
 
 import { Mission } from '../support/types'
 
-import { deleteMission, deleteReservation, deleteTicket, insertMission } from '../support/db'
+import { cleanMission, cleanAndInsertMission } from '../support/db'
 
 
 
@@ -45,7 +45,7 @@ test('deve cadastrar uma nova missão', async ({ page }) => {
 
 
   const mission: Mission = {
-    id: 'LP-' + faker.string.alphanumeric({ length: { min: 5, max: 5 }, casing: 'upper' }),
+    id: 'LP-0128A',
     rocket: 'Starship',
     baseId: 'aurora',
     departureDate: '2028-01-20',
@@ -53,7 +53,9 @@ test('deve cadastrar uma nova missão', async ({ page }) => {
     price: 1000.00
   }
 
+ 
 
+  await cleanMission(mission)
 
   await dashPage.addButton.click()
   await expect(registerPage.title).toBeVisible()
@@ -101,10 +103,9 @@ test('não deve cadastrar com código duplicado', async ({ page }) => {
   }
 
   
-  await deleteReservation(mission.id)
-  await deleteTicket(mission.id)
-  await deleteMission(mission.id)
-  await insertMission(mission)
+
+  await cleanAndInsertMission(mission)
+
 
   //Act - ação do teste
   await dashPage.addButton.click()
