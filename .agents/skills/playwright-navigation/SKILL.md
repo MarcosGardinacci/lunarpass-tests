@@ -1,4 +1,4 @@
----
+<!-- ---
 name: playwright-navigation
 description: >-
   Use esta skill quando for necessário realizar navegação web, interação com elementos de páginas, auditoria visual de UI, preenchimento de formulários, automação E2E ou capturas de tela utilizando as ferramentas do Playwright MCP.
@@ -46,4 +46,4 @@ Esta skill instrui o agente sobre como utilizar as ferramentas do **Playwright M
 1. **Seletores Resilientes**: Priorize o uso de `getByRole`, `getByText`, `getByLabel` ou `data-testid`.
 2. **Espera Implícita e Assíncrona**: Sempre aguarde a renderização de elementos dinâmicos antes de realizar interações subsequentes.
 3. **Tratamento de Exceções**: Se um elemento não for encontrado, inspecione a árvore DOM atual atualizando a leitura da página antes de re-tentar.
-4. **Resolução e Viewport**: Mantenha uma resolução padrão adequada (ex.: 1280x720 ou 1920x1080) quando capturar evidências visuais.
+4. **Resolução e Viewport**: Mantenha uma resolução padrão adequada (ex.: 1280x720 ou 1920x1080) quando capturar evidências visuais. -->
