@@ -26,6 +26,8 @@ export const db = new Kysely<Database>({
 })
 
 
+// ---- missions ----
+
 export async function cleanMission(mission: Mission){
      await deleteReservation(mission.id)
      await deleteTicket(mission.id)
@@ -52,12 +54,16 @@ export async function deleteMission(id: string){
     .execute()
 }
 
+// ---- reservations ----
+
 export async function deleteReservation(mission_id: string){
     await db
     .deleteFrom('reservations')
     .where('missionId', '=', mission_id)
     .execute()
 }
+
+// ---- tickets ----
 
 export async function deleteTicket(mission_id: string){
     await db
